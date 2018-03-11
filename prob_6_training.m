@@ -1,4 +1,4 @@
-function w=prob_6(y,outputs, output,target,weights2)
+function w=prob_6_training(y,outputs, output,target,weights2)
 %Adjusting the weights of the output layer. 
 %y is yita(training rate, 0.01~0.1)
 %outputs is input layer and hidden layer outputs.
