@@ -1,4 +1,11 @@
-function [weights,weights2]=prob_5(n)      % initialize the network by generating a random weight matrix
-    weights=rand(n,n);
-    weights2=rand(n,10);
+function weights=prob_5(numhidLayers,numNeurons)
+%784 is dimension of input layers, 10 is dimension of output layers,which
+%are fixed. 
+%numNuerons can be arbitrary constant.
+weights={rand(784,numNeurons)};
+for i=2:numhidLayers
+    weights{i}=rand(numNeurons,numNeurons);
+end
+weights{numhidLayers+1}=rand(numNeurons,10); 
+
 end
