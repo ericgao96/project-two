@@ -2,7 +2,7 @@ load('mnist_all.mat');                  % load the data
 
 for i=1:10                              % loop over train0 to train9
     name=sprintf('%s%d','train',i-1);
-    T(i,:)=mean(eval(name));
+    T(i,:)=mean(eval(name));            % T refers to the training matrix. Each row of it is a training set.
 end
 
 for i = 1:10                            % visualize these average digits using subplot.
