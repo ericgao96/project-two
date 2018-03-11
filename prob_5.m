@@ -1,4 +1,4 @@
-function weights=prob_5(numhidLayers,numNeurons)
+function weights=prob_5_initialize(numhidLayers,numNeurons)
 %784 is dimension of input layers, 10 is dimension of output layers,which
 %are fixed. 
 %numNuerons can be arbitrary constant.
