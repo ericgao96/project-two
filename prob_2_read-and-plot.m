@@ -9,6 +9,7 @@ for i = 1:10                            % visualize these average digits using s
     subplot(2,5,i);
     k = T(i,:);
     digit_image = reshape(k, 28, 28);
+    trainingset{i}=digit_image;
     image(rot90(flipud(digit_image),-1));
     colormap(gray(256)), axis square tight off
 end
