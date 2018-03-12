@@ -1,4 +1,4 @@
-function w=prob_6_training(y,outputs, output,target,weights,numhidLayers,numneurons,input)
+function W=prob_6_training(y,outputs, output,target,weights,numhidLayers,numneurons,input)
 %Adjusting the weights of the output layer. 
 %y is yita(training rate, 0.01~0.1)
 %outputs is input layer and hidden layer outputs.
@@ -27,5 +27,6 @@ end
 j=1;
 delta{1}(:,j)=outputs(:,j).*(1-outputs(:,j)).*(weights{1+j}*delta{1}(:,j+1));
 weights{j}=weights{j}+y*input*delta{1}(:,j)'; 
+W=weights;
     
     
