@@ -1,18 +1,17 @@
-function W=prob_6_training(y,outputs, output,target,weights,numhidLayers,numneurons,input)
+function W=prob_6_training(y,outputs, output,target,weights,numhidLayers,numNeurons,input)
 %Adjusting the weights of the output layer. 
 %y is yita(training rate, 0.01~0.1)
 %outputs is input layer and hidden layer outputs.
 %output is output layer.
 %target is the target values. Ex.Digit 1 = (0 1 0 0 0 0 0 0 0 0)
 %weights weight coefficient matrix of hidden layers.
-%weights is weight coefficeint matrix between last hidden layer and output layer.
+%weights is weight coefficeint matrix between last hidden layer and output
+%layer.
 
 input=input(:);
-[n,m]=size(outputs);
 error=abs(output-target);
-
 %target and output are column vectors
-delta={ones(numneurons,numhidLayers),[]};  %we only need delta for hidlayers and outputlayers
+delta={ones(numNeurons,numhidLayers),[]};  %we only need delta for hidlayers and outputlayers
 delta{2}=output.*(1-output).*error;
 weights{numhidLayers+1}=weights{numhidLayers+1}+y*outputs(numhidLayers)*delta{2}';
 
@@ -28,5 +27,4 @@ j=1;
 delta{1}(:,j)=outputs(:,j).*(1-outputs(:,j)).*(weights{1+j}*delta{1}(:,j+1));
 weights{j}=weights{j}+y*input*delta{1}(:,j)'; 
 W=weights;
-    
     
