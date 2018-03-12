@@ -5,11 +5,12 @@ function w=prob_6_training(y,outputs, output,target,weights,numhidLayers,numneur
 %output is output layer.
 %target is the target values. Ex.Digit 1 = (0 1 0 0 0 0 0 0 0 0)
 %weights weight coefficient matrix of hidden layers.
-%weights is weight coefficeint matrix between last hidden layer and output
-%layer.
+%weights is weight coefficeint matrix between last hidden layer and output layer.
+
 input=input(:);
 [n,m]=size(outputs);
 error=abs(output-target);
+
 %target and output are column vectors
 delta={ones(numneurons,numhidLayers),[]};  %we only need delta for hidlayers and outputlayers
 delta{2}=output.*(1-output).*error;
