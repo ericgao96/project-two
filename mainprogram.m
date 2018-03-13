@@ -3,7 +3,8 @@
 
 clc;clear all;close all;
 % read data into a cell called trainingset.traingset{i}stands for number(i-1)
-prob_2;
+load('mnist_all.mat');
+trainingdata=train0';
 
 % set up training parameters
 numhidLayers=input('Enter the number of hidden layers: ');
@@ -16,11 +17,10 @@ target=zeros(10,10);
 for i=1:10
     target(i,i)=1;
 end
-
+[m,n]=size(trainingdata);
 % first training using digit '0'
-for j=1:1000
-    for i=1:10
-        [output,outputs]=prob_4_network(numNeurons,numhidLayers,trainingset{i}(:),weights);
-        weights=prob_6_training(yita,outputs,output,target(:,i),weights,numhidLayers,numNeurons,trainingset{i});
-    end
+
+for i=1:n
+        [output,outputs]=prob_4_network(numNeurons,numhidLayers,trainingdata(:,i),weights);
+        weights=prob_6_training(yita,outputs,output,target(:,1),weights,numhidLayers,numNeurons,trainingdata(:,i));
 end
