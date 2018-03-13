@@ -4,10 +4,10 @@ function weights=prob_5_initialize(numhidLayers,numNeurons)
 % numNuerons can be arbitrary constant.
 % weights is a cell consists of L+1 weight matrix.1 of them is 784*numNeurons;L of them is numNeurons*numNeurons;1
 % of them is numNeurons*10;
-weights={rand(784,numNeurons)};
+weights={rand(784,numNeurons)/10000};
 for i=2:numhidLayers
-    weights{i}=rand(numNeurons,numNeurons)/1000;
+    weights{i}=rand(numNeurons,numNeurons)/10000;
 end
-weights{numhidLayers+1}=rand(numNeurons,10)/1000; 
+weights{numhidLayers+1}=rand(numNeurons,10)/10000; 
 
 end
