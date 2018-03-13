@@ -9,7 +9,7 @@ function W=prob_6_training(y,outputs, output,target,weights,numhidLayers,numNeur
 %layer.
 
 input=input(:);
-error=abs(output-target);
+error=target-output;
 %target and output are column vectors
 delta={ones(numNeurons,numhidLayers),[]};  %we only need delta for hidlayers and outputlayers
 delta{2}=output.*(1-output).*error;
@@ -25,6 +25,5 @@ for j=numhidLayers:-1:2
 end
 j=1;
 delta{1}(:,j)=outputs(:,j).*(1-outputs(:,j)).*(weights{1+j}*delta{1}(:,j+1));
-weights{j}=weights{j}+y*input*delta{1}(:,j)'; 
+weights{j}=weights{j}+y*double(input)*double(delta{1}(:,j)'); 
 W=weights;
-    
