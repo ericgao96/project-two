@@ -1,4 +1,4 @@
-function [output,outputs] = prob_4(numNeurons,numhidLayers,input, weights)
+function [output,outputs] = prob_4_network(numNeurons,numhidLayers,input, weights)
 %input is a vector, whose dimension is decided by number of pixels the
 %graph contains. In this project, it is an 784*1 column vector.
 %weights is a cell. The first element is weight matrix between input layers
